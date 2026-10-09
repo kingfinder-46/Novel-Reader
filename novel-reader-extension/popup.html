@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            width: 250px;
+            padding: 16px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #121212;
+            color: #E0E0E0;
+            text-align: center;
+        }
+
+        h3 {
+            font-size: 15px;
+            margin-bottom: 16px;
+            color: #BB86FC;
+            letter-spacing: 0.5px;
+        }
+
+        .circle-row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 18px;
+        }
+
+        .btn-circle {
+            border-radius: 50%;
+            background-color: #2C2C2C;
+            color: #E0E0E0;
+            border: 1px solid #444;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: transform 0.1s, background 0.2s;
+        }
+
+        .btn-circle:active {
+            transform: scale(0.92);
+        }
+
+        .btn-skip {
+            width: 44px;
+            height: 44px;
+            font-size: 11px;
+            color: #BB86FC;
+        }
+
+        .btn-toggle {
+            width: 56px;
+            height: 56px;
+            font-size: 20px;
+            background-color: #03DAC6;
+            color: #000;
+            border: none;
+        }
+
+        .btn-toggle.playing {
+            background-color: #CF6679;
+            color: #000;
+        }
+
+        .setting-group {
+            margin-bottom: 12px;
+            text-align: left;
+        }
+
+        .setting-group label {
+            font-size: 12px;
+            color: #A0A0A0;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .slider {
+            width: 100%;
+            accent-color: #BB86FC;
+            cursor: pointer;
+        }
+
+        select {
+            width: 100%;
+            padding: 6px;
+            background-color: #2C2C2C;
+            color: #E0E0E0;
+            border: 1px solid #444;
+            border-radius: 6px;
+            outline: none;
+            cursor: pointer;
+            font-size: 12px;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>NOVEL READER PRO</h3>
+
+    <div class="circle-row">
+        <button id="skipBackBtn" class="btn-circle btn-skip" title="Skip Back 10s">-10s</button>
+        <button id="toggleBtn" class="btn-circle btn-toggle" title="Play / Stop">▶</button>
+        <button id="skipForwardBtn" class="btn-circle btn-skip" title="Skip Forward 10s">+10s</button>
+    </div>
+
+    <div class="setting-group">
+        <label for="voiceSelect">Voice Quality</label>
+        <select id="voiceSelect">
+            <option value="">Loading Voices...</option>
+        </select>
+    </div>
+
+    <div class="setting-group">
+        <label for="speedSlider">Base Speed: <span id="speedVal">1.0</span>x</label>
+        <input type="range" id="speedSlider" class="slider" min="0.75" max="3.0" step="0.25" value="1.0">
+    </div>
+
+    <div class="setting-group">
+        <label for="sleepTimer">Sleep Timer</label>
+        <select id="sleepTimer">
+            <option value="0">Disabled</option>
+            <option value="15">15 Minutes</option>
+            <option value="30">30 Minutes</option>
+            <option value="45">45 Minutes</option>
+            <option value="60">60 Minutes</option>
+        </select>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+
+</html>
